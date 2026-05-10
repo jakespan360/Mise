@@ -245,17 +245,17 @@ export default function GroceryPage() {
       {checked.length > 0 && (
         <div className="space-y-1">
           <p className="text-xs text-stone-400 font-medium uppercase tracking-wider px-1">Checked</p>
-          <ul className="divide-y divide-stone-100 bg-white border border-stone-200 rounded-xl overflow-hidden opacity-50">
+          <ul className="divide-y divide-stone-100 bg-white border border-stone-200 rounded-xl overflow-hidden">
             {checked.map(item => (
-              <li key={item.id} className="flex items-center gap-3 px-4 py-3">
+              <li key={item.id} className="flex items-center gap-3 px-4 py-3 bg-stone-50">
                 <input
                   type="checkbox"
                   checked={true}
                   onChange={() => handleCheck(item)}
                   className="w-4 h-4 rounded border-stone-300 accent-stone-800 cursor-pointer"
                 />
-                <span className="flex-1 text-sm text-stone-500 line-through capitalize">{item.canonical_name}</span>
-                <span className="text-sm text-stone-400">{renderQty(item)}</span>
+                <span className="flex-1 text-sm text-stone-400 line-through capitalize">{item.canonical_name}</span>
+                <span className="text-sm text-stone-300">{renderQty(item)}</span>
                 <button
                   onClick={() => handleDelete(item.id)}
                   className="text-stone-300 hover:text-red-400 transition-colors text-xs px-1"
