@@ -229,7 +229,16 @@ export default function RecipesPage() {
         })}
       </div>
 
-      {viewing && <RecipeModal recipe={viewing} onClose={() => setViewing(null)} />}
+      {viewing && (
+        <RecipeModal
+          recipe={viewing}
+          onClose={() => setViewing(null)}
+          onUpdate={updated => {
+            setRecipes(prev => prev.map(r => r.id === updated.id ? updated : r))
+            setViewing(updated)
+          }}
+        />
+      )}
       {toast && <Toast message={toast} onDismiss={() => setToast(null)} />}
     </div>
   )
